@@ -1,0 +1,4 @@
+documento de prueba
+para python
+por medio de una
+apertura del archivo
