@@ -16,8 +16,6 @@
         #saca la siguiente tarea de la lista y la pone en "tarea actual"
 
 #1. hacer una clase Tarea
-from asyncio.windows_events import NULL
-
 
 class Task:
     def __init__(self, description, dueDate): #atributos de la clase definidos en init
