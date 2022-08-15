@@ -93,3 +93,14 @@ button:hover {
   display: flex;
   flex-direction: column;
 }
+
+.tarea-actual {
+  max-height: 200px;
+}
+
+.tarea-futura {
+  max-height: 450px;
+  padding-top: 90px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}

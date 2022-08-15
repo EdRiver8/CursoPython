@@ -13,29 +13,35 @@
   <h1>Sistema de Gestion de Tareas</h1>
   <div class="tareas">
     <!-- Seccion tareas actuales -->
-    <section class="section">
+    <section class="section tarea-actual">
       <h2>Tarea Actual</h2>
+      {% if not currentTask == '' %}
+      <!-- div para mostrar la tarea actual -->
       <div class="tarea">
-        <!-- div para mostrar la tarea actual -->
-        <span class="descripcion">Esta es la descripcion de la tarea</span>
-        <span class="fecha">14/08/2022</span>
+        <span class="descripcion">{{user.currentTask.description}}</span>
+        <span class="fecha">{{user.currentTask.dueDate}}</span>
       </div>
       <form action="/end-task" method="POST">
         <button>Finalizar Tarea</button>
       </form>
+      {% else %}
+      <span>Sin Tareas</span>
+      {% endif %}
     </section>
     <!-- seccion tareas futuras -->
-    <section class="section">
+    <section class="section tarea-futura">
       <div class="tareas-cola">
         <h2>Tareas en Cola</h2>
         <a href="/add-task">
           <button>Agregar Nueva Tarea</button>
         </a>
       </div>
+      {% for task in user.taskList %}
       <div class="tarea">
-        <span class="descripcion">Esta es la descripcion de la tarea</span>
-        <span class="fecha">14/08/2022</span>
+        <span class="descripcion">{{task.description}}</span>
+        <span class="fecha">{{task.dueDate}}</span>
       </div>
+      {% endfor %}
     </section>
   </div>
 </body>
