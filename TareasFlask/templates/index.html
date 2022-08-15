@@ -11,6 +11,33 @@
 
 <body>
   <h1>Sistema de Gestion de Tareas</h1>
+  <div class="tareas">
+    <!-- Seccion tareas actuales -->
+    <section class="section">
+      <h2>Tarea Actual</h2>
+      <div class="tarea">
+        <!-- div para mostrar la tarea actual -->
+        <span class="descripcion">Esta es la descripcion de la tarea</span>
+        <span class="fecha">14/08/2022</span>
+      </div>
+      <form action="/end-task" method="POST">
+        <button>Finalizar Tarea</button>
+      </form>
+    </section>
+    <!-- seccion tareas futuras -->
+    <section class="section">
+      <div class="tareas-cola">
+        <h2>Tareas en Cola</h2>
+        <a href="/add-task">
+          <button>Agregar Nueva Tarea</button>
+        </a>
+      </div>
+      <div class="tarea">
+        <span class="descripcion">Esta es la descripcion de la tarea</span>
+        <span class="fecha">14/08/2022</span>
+      </div>
+    </section>
+  </div>
 </body>
 
 </html>

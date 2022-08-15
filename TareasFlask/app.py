@@ -1,4 +1,6 @@
-from flask import Flask, render_template, url_for #instalar libreria flask: pip install flask
+import re
+from urllib import request
+from flask import Flask, render_template, url_for, redirect, request #instalar libreria flask: pip install flask
 app = Flask(__name__)# crear instancia de flask
 
 class Task:
@@ -42,13 +44,23 @@ def index():
     return render_template('index.html')
     #return "Hola Mundo!"
 
-@app.route("/route2")
-def route2():
-    return "Presente la ruta 2"
+@app.route("/end-task", methods=["GET", "POST"])
+def endTask():
+    print("Eliminando Tarea")
+    return redirect('/')
+
+@app.route("/add-task", methods=["GET", "POST"])
+def addTask():
+    if request.method == "GET": # usuario apenas llega a ruta, retorna el html de la pagina
+        return render_template('task.html')
+    elif request.method == "POST":
+        print(request.form)
+        return redirect("/")
+    
 
 
 
 
-# Permite se ejecute auto con 'run' funciona como ciclo
+# Permite se ejecute auto con 'run' funciona como ciclo while True
 if __name__ == "__main__":
     app.run(debug=True)
