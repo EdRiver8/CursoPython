@@ -1,0 +1,12 @@
+1- Comando inicial para el proyecto de forma general =>
+pip install virtualenv
+
+2- dentro del proyecto, creamos una carpeta que va a contener el 
+ambiente virtual, en este caso la llame 'venv' 
+python -m virtualenv venv
+
+3- activar el entorno virtual:
+oprimir f1 y luego en la bara de vs code escribir 'select interpreter', seleccionar 'Enter interpreter path', dentro, buscar la carpeta 'bin' o 'scripts' y seleccionar el archivo ejecutable 'python' el que no tiene version. ahora se abre una consola nueva y ya antepone la palabra 'venv' con esto sabe que se va a trabajar con un entorno virtual
+
+4- instalar el paquete para conectar a postgresql (necesario tener instalado postgresql en el pc):
+pip install psycopg2
