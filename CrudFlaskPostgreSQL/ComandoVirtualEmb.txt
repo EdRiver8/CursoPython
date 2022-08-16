@@ -10,3 +10,10 @@ oprimir f1 y luego en la bara de vs code escribir 'select interpreter', seleccio
 
 4- instalar el paquete para conectar a postgresql (necesario tener instalado postgresql en el pc):
 pip install psycopg2
+
+5- despues de creada la base inicial de las rutas se instala thunder client como extension de vscode, para poder hacer peticiones get, post, put, delete
+
+6- crear un archivo sql para crear las tablas
+
+7- cifrar las contraseñas, se debe instalar lo siguiente:
+pip install cryptography
