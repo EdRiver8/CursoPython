@@ -17,3 +17,13 @@ pip install psycopg2
 
 7- cifrar las contraseñas, se debe instalar lo siguiente:
 pip install cryptography
+
+8- Instalar dotenv para poder manipular las variables de entorno (se debe tener el env activado como dice el paso 3):
+pip install python-dotenv van a estar guardadas en '.env'
+
+9- crear un modulo para produccion, usando gunicorn:
+pip install gunicorn
+se crea el archivo 'Procfile'
+
+10- para decirle a heroku que modulos instalar:
+pip freeze > requirements.txt 

@@ -1,15 +1,19 @@
 from flask import Flask, request, jsonify, send_file
 from psycopg2 import connect, extras
 from cryptography.fernet import Fernet
+from dotenv import load_dotenv
+from os import environ # tener acceso a las variables de entorno del sistema
+
+load_dotenv()# lee el archivo '.env'
 
 app = Flask(__name__)
 key = Fernet.generate_key()
 
-host = 'localhost'
-port = '5432'
-dbname = 'usersDbPython'
-user = 'postgres'
-password = '6146'
+host = environ.get('DB_HOST')
+port = environ.get('DB_PORT')
+dbname = environ.get('DB_NAME')
+user = environ.get('DB_USER')
+password = environ.get('DB_PASSWORD')
 def get_connection():
   """
   Creando la cadena de conexion con la base de datos, para asi poder usar 'cursor'
@@ -47,7 +51,7 @@ def get_user(id):
   """
   conn = get_connection()
   cur = conn.cursor(cursor_factory=extras.RealDictCursor)
-  cur.execute('SELECT * FROM users WHERE id = %s', (id))
+  cur.execute('SELECT * FROM users WHERE id = %s', (id,))
   user = cur.fetchone()
   #print(user)
   
@@ -88,7 +92,7 @@ def create_user():
 def delete_user(id):
   conn = get_connection()
   cur = conn.cursor(cursor_factory=extras.RealDictCursor)
-  cur.execute('DELETE FROM users WHERE id = %s RETURNING * ', (id))
+  cur.execute('DELETE FROM users WHERE id = %s RETURNING * ', (id,)) # se debe indicar que el id es una tupla
   user = cur.fetchone()
   
   conn.commit()# guarde los cambios
