@@ -29,6 +29,9 @@ def get_connection():
 
 @app.get('/api/users')
 def get_users():
+  """
+  Obtener todos los usuarios registrados
+  """
   conn = get_connection()
   cur = conn.cursor(cursor_factory=extras.RealDictCursor) # convierte a diccionario
   cur.execute('SELECT * FROM users')
@@ -39,6 +42,9 @@ def get_users():
 
 @app.get('/api/users/<id>')
 def get_user(id):
+  """
+  Obtener un solo usuario registrado
+  """
   conn = get_connection()
   cur = conn.cursor(cursor_factory=extras.RealDictCursor)
   cur.execute('SELECT * FROM users WHERE id = %s', (id))
